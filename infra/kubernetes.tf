@@ -24,7 +24,7 @@ resource "kubernetes_deployment_v1" "Django-API" {
 
       spec {
         container {
-          image = "962752222089.dkr.ecr.us-west-2.amazonaws.com/producao:v1"
+          image = "leodosurf/app-node:1.0"
           name  = "django"
 
           resources {
@@ -51,4 +51,30 @@ resource "kubernetes_deployment_v1" "Django-API" {
       }
     }
   }
+}
+
+resource "kubernetes_service_v1" "LoadBalancer" {
+  metadata {
+    name = "load-balancer-django-api"
+  }
+  spec {
+    selector = {
+      nome = "django"
+    }
+    port {
+      port = 3000
+      target_port = 3000
+    }
+    type = "LoadBalancer"
+  }
+}
+
+data "kubernetes_service_v1" "nomeDNS" {
+    metadata {
+      name = "load-balancer-django-api"
+    }
+}
+
+output "URL" {
+  value = data.kubernetes_service_v1.nomeDNS.status
 }

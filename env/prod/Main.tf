@@ -4,3 +4,6 @@ module "prod" {
     cluster_name = "producao"   
 }
 
+output "endereco" {
+    value = module.prod.URL
+}
