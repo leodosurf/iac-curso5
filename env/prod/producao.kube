@@ -1,0 +1,29 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTVBFMjVJL1RKWTh3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBek16RXlNRE0yTlRKYUZ3MHpOakF6TWpneU1EUXhOVEphTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUNnTmNRVEY5d2NVMUI2YTV4MTRpN1VRN1lyVXhuNXFpamUwOXpPYU1vSFNyeTdKcEZHZ09uWmNzdFEKMzFnWmEyNGZ6MWpJWVV2eExYR09xSHhabkdpd3NFOHhyYml2SHRGSWpaWll2K1VRODJOWktvZndFN3grR2lXMwpYQTQwdU9QZ1hoek51TVh6R090dnVlT3BxMXpVY3pKTmZRd21BWVpIdnU3MlJuNzY1QVZ6d0ZSUkJIbmJRc09DCmNwbmVCeUwwZCt0eTdSTnQwWm0vQ0h2K1RSdFlmTUhSTm1mYjB2M1Y1SGJmVmNsbHZBanpHU1NHbEdHVm43a1kKeUdHQjBOdnd3a09nYmhiYnZYRkhGMFJXQ1V2QnM1UmtCZmRwMVRnUTcrdGJhZjBqN3psdnBzTzVrZ0Q3bzB5aQowTmdZMHFwcXhQSzFtaStPMllkS09xZDZQbCtuQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJTT0VTQm4zc1NJbmgvNTM0cUp1WWJrckxvQmFEQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQVBub281Rm1rYwpHZzNTL3J1bUNGWDIwakhWdkpST2ZiemRtU2lnMmIveXdiZ0g3d1ZDUi9ldy9nRzVUUU91dW9TUHowVHZidmcyCjFjNEJpVWZJR3AzNFlxcU5kRjVDWWpYaE5nVEs2SUlvMHhqUWY0a0hET2ROdDVMNkJVU0FFUU93UE1aODZHaTMKZWtjVnYyUmJwaVlCMzNJTmU2U1hyVTJLOHU1SmQwUDJYY1NWeTJ0KzhkWUlIQ0hsZnNmY09LemZhK1BLRkdhVgp0N1RyMllWMCtNdTJkT0JQMHM2SlozYmRwcjg1d1FkaU04SnJDZDZwcDEyeFFNMzRyK0ZlM2oxdTBZTXhDSmIzCnYwcVVQM3RCS2tPZlZiTXdVNDhQd3hOS0wvTEFjZEd1VFArbTd2VG02ak0zZHBMVjl3cXU5RVU5Vkh1a0FITDYKTUxuSEExSzV4V0o5Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://69BCDBFC1AB2A9F6E253458DFDE74F2E.gr7.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:759410591479:cluster/producao
+contexts:
+- context:
+    cluster: arn:aws:eks:us-east-1:759410591479:cluster/producao
+    user: arn:aws:eks:us-east-1:759410591479:cluster/producao
+  name: arn:aws:eks:us-east-1:759410591479:cluster/producao
+current-context: arn:aws:eks:us-east-1:759410591479:cluster/producao
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-east-1:759410591479:cluster/producao
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - producao
+      - --output
+      - json
+      command: aws
